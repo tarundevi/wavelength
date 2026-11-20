@@ -5,12 +5,12 @@
 - [x] Inspect the static site and current Git/GitHub setup.
 - [x] Start a local preview and verify an HTTP response.
 - [x] Create an isolated Git repository for this site and a Pages publishing workflow.
-- [ ] Authenticate GitHub, create the remote repository, and push the site.
-- [ ] Enable Pages, verify the public URL, and record the result below.
+- [x] Authenticate GitHub, create the remote repository, and push the site.
+- [x] Enable Pages, verify the public URL, and record the result below.
 
 ### Review
 
-Pending deployment verification. The local preview at `http://localhost:8765` returned HTTP 200.
+The local preview at `http://localhost:8765` returned HTTP 200. `node --check dist/script.js` passed. GitHub Pages workflow run 44800687962 succeeded, and `https://tarundevi.github.io/wavelength/` returned HTTP 200 over HTTPS. The first run failed because Pages was not yet enabled; enabling Pages and rerunning the workflow resolved it.
 
 - [x] Settle scope: solo pass-and-play, lightweight static HTML.
 - [x] Build responsive dial and round flow.
