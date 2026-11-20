@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0e1333">
+  <meta name="description" content="A colorful pass-and-play spectrum guessing game.">
+  <title>Wavelength — meet in the middle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">◒</span><span>WAVELENGTH</span></div>
+      <div class="round-pill">Round <span id="round">1</span> <span class="dot">·</span> <span id="score">0</span> points</div>
+    </header>
+
+    <section class="play-area" aria-live="polite">
+      <div class="intro">
+        <p id="phase-label" class="phase-label">The clue giver's turn</p>
+        <h1 id="headline">Think of a clue.</h1>
+        <p id="instruction">Look at the hidden target, then say a clue that lands at that spot between the two ideas.</p>
+      </div>
+
+      <div class="dial-wrap">
+        <div class="rays rays-left" aria-hidden="true"></div>
+        <div class="rays rays-right" aria-hidden="true"></div>
+        <div id="dial" class="dial" role="img" aria-label="Spectrum dial">
+          <div class="dial-face">
+            <div id="target" class="target" aria-hidden="true"></div>
+            <div class="dial-inner"></div>
+            <div id="needle" class="needle"><div class="needle-stick"></div><div class="needle-cap"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spectrum"><span id="left-label">Hot</span><span class="spectrum-line"></span><span id="right-label">Cold</span></div>
+
+      <div id="clue-panel" class="control-panel">
+        <label for="category">Choose a category or write your own</label>
+        <select id="category" aria-label="Choose a preset category"></select>
+        <div class="custom-pair">
+          <div><label for="custom-left">Left end</label><input id="custom-left" type="text" maxlength="28" aria-label="Left end of spectrum"></div>
+          <div><label for="custom-right">Right end</label><input id="custom-right" type="text" maxlength="28" aria-label="Right end of spectrum"></div>
+        </div>
+        <label for="clue">Your clue</label>
+        <div class="clue-row"><input id="clue" type="text" maxlength="70" autocomplete="off" placeholder="A word, phrase, or idea…"><button id="pass-btn" class="primary" type="button">Pass to guesser</button></div>
+        <p class="hint">Keep the screen to yourself until you're ready to pass it.</p>
+      </div>
+
+      <div id="guess-panel" class="control-panel hidden">
+        <div class="clue-display">The clue: <strong id="shown-clue"></strong></div>
+        <label for="guess-slider">Turn the dial to your guess</label>
+        <input id="guess-slider" class="slider" type="range" min="0" max="100" value="50" aria-label="Your guess on the spectrum">
+        <button id="reveal-btn" class="primary wide" type="button">Reveal target</button>
+      </div>
+
+      <div id="result-panel" class="control-panel result-panel hidden">
+        <div class="result-copy"><span id="points-earned" class="big-points">0</span><span>points this round</span></div>
+        <p id="result-message"></p>
+        <button id="next-btn" class="primary wide" type="button">Next round</button>
+      </div>
+    </section>
+    <footer><span>Find the middle ground.</span><button id="how-btn" type="button">How to play</button></footer>
+  </main>
+  <dialog id="how-dialog"><button id="close-dialog" class="close" aria-label="Close">×</button><h2>How to play</h2><p>One player sees a secret target on the spectrum and gives a clue. Pass the device to a second player. They place the needle where they think the clue belongs. Reveal the target to score.</p><p>Closer guesses earn more points. Take turns giving clues each round.</p></dialog>
+  <script src="script.js"></script>
+</body>
+</html>
